@@ -16,6 +16,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+})
 
 const PORT = process.env.PORT || 5000;
 
